@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import {useGlobalContext} from './context';
 import './App.css';
 import Favourites from './components/Favourites';
@@ -7,10 +6,11 @@ import Modal from './components/Modal';
 import Meals from './components/Meals';
 
 function App() {
-	const {showModal} = useGlobalContext();
+	const {showModal, favourites} = useGlobalContext();
   return (
     <div className="App">
-	<Search />  
+	<Search /> 
+	{favourites.length > 0 && <Favourites /> } 
 	<Meals />
 	{showModal && <Modal />}
     </div>
